@@ -1,0 +1,12 @@
+import cv2
+from google.colab.patches import cv2_imshow
+def thresholding(image, threshold_value, max_value):
+    _, thresholded_image = cv2.threshold(image, threshold_value, max_value, cv2.THRESH_BINARY)
+    return thresholded_image
+image_path = "Masjid-Kutacane.jpg"  # Ganti dengan path gambar Anda
+image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+threshold_value = 50
+new_max_value = 510
+thresholded_image = thresholding(image, threshold_value, new_max_value)
+cv2_imshow(image)
+cv2_imshow(thresholded_image)
